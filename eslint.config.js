@@ -1,10 +1,13 @@
-import js from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
+import js from '@eslint/js';
+import pluginVue from 'eslint-plugin-vue';
 
 export default [
   {
     name: 'app/files-to-lint',
     files: ['**/*.{js,mjs,jsx,vue}'],
+    rules: {
+      'semi': ['error', 'always']
+    }
   },
 
   {
@@ -14,4 +17,4 @@ export default [
 
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
-]
+];
