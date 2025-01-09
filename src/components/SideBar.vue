@@ -12,7 +12,6 @@ const loading = computed(() => store.state.loading);
 const error = computed(() => store.state.error);
 
 const handleSearch = () => {
-  store.commit("setLoading", true);
   clearTimeout(debounceTimeout.value);
 
   debounceTimeout.value = setTimeout(() => {
@@ -20,9 +19,7 @@ const handleSearch = () => {
       store.dispatch("searchUsers", searchTerm.value);
     } else {
       store.dispatch("clearSearch");
-      store.state.pagination.page = 1;
     }
-    store.commit("setLoading", false);
   }, 500);
 };
 
@@ -74,7 +71,7 @@ const tip = computed(() => {
 				<p class="result-title">Результаты</p>
 				<p v-if="!showResults" class="tip">{{ tip }}</p>
 			</div>
-			<div class="list-container">
+			<div class="list-container" v-if="showResults">
 				<div
 					v-for="user in users"
 					:key="user.id"
