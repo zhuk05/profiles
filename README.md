@@ -1,14 +1,13 @@
-# employee-search
+# Employee Search
 
-This template should help get you started developing with Vue 3 in Vite.
+Использовались:
+- Vue 3
+- Vuex 4 (for Vue 3)
+- [Fake api/mock](https://jsonplaceholder.typicode.com/)
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+В UserStore есть пагинация, для того чтобы случайно не отрендерить список в 2к юзеров, присутсвует поиск через запятую поэтому когда пишете 'a, o' у каждой буквы свой собственный лимит (помоему появится 7 юзеров). 
+Поиск только на англ. яз. и чтобы избежать сильных мерцаний кастомный дебаунс. 
+[Fake api](https://jsonplaceholder.typicode.com/) у меня не открываются без vpn, соответственно и ответ от их сервиса я не получал без vpn, так что если увидете карсный текст, то просто включите любой бесплатный vpn.
 
 ## Project Setup
 
@@ -19,7 +18,7 @@ pnpm install
 ### Compile and Hot-Reload for Development
 
 ```sh
-pnpm dev
+pnpm serve
 ```
 
 ### Compile and Minify for Production
